@@ -10,3 +10,19 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
+
+// require jQuery normally
+const $ = require('./jquery.js');
+// create global $ and jQuery variables
+global.$ = global.jQuery = $;
+
+
+$('#burger').on('click', function(){
+    event.preventDefault();
+    $("#menuNav ul").slideToggle();
+    $("#menuNav li").on('click', function(){
+        event.preventDefault();
+        $("#menuNav ul").slideUp();
+    })
+})
+

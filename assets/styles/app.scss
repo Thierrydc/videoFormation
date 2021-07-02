@@ -1,5 +1,15 @@
+@import 'reset';
+
+@import '~@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '~@fortawesome/fontawesome-free/css/regular.css';
+@import '~@fortawesome/fontawesome-free/css/solid.css';
+@import '~@fortawesome/fontawesome-free/css/brands.css';
+
 @import 'mixins';
 @import 'general';
+@import 'header';
+@import 'footer';
+@import 'mediaquery';
 
 body {
     background-color: lightgray;
