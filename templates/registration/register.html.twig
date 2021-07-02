@@ -8,12 +8,10 @@
     <div class="contentForm">
         {{ form_start(registrationForm) }}
             {{ form_row(registrationForm.email) }}
-            {{ form_row(registrationForm.password, {
-                label: 'Password'
-            }) }}
+            {{ form_row(registrationForm.pseudo) }}
+            {{ form_row(registrationForm.password) }}
         
             <button type="submit" class="td_button">Register</button>
-        
         {{ form_end(registrationForm) }}
     </div>
 {% endblock %}
