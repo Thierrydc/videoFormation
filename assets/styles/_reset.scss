@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     border: 0;
+    box-sizing: inherit;
     user-select: none;
 }
 
@@ -15,4 +16,8 @@ a {
 
 a:visited {
     // color: white;
+}
+
+::after, ::before {
+    box-sizing: inherit;
 }
