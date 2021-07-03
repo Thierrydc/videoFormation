@@ -1,0 +1,54 @@
+header nav {
+    background-color: white;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
+
+    #menuNav {
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+
+        #burger {
+            cursor: pointer;
+            display: none;
+            padding: 0 1rem;
+            position: relative;
+            top: 8px;
+
+            a {
+                color: #08112A;
+            }
+
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            text-transform: uppercase;
+            margin: 1.5rem 0;
+
+            li {
+                color: #08112A;
+                cursor: pointer;
+                font-size: 0.9em;
+
+                a {
+                    color: #08112A;
+                    border-left: 1px solid #08112A;
+                    padding: 0 1em;
+                }
+
+                &:hover a {
+                    color: #88002D;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

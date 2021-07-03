@@ -1,0 +1,23 @@
+<header>
+    <nav>
+        <div id="menuNav">
+            <div id="logo">
+                <a href="index.php">videoFormation</a> 
+            </div>
+            <div id="burger">
+                <a href=""><i class="fas fa-bars"></i></a>
+            </div>
+            <ul>
+                <li><a href="profil.php">Mon profil</a></li>
+
+                <li>
+                    {% if app.user %}
+                    <a class="nav-link" href="{{path('app_logout')}}">Logout</a>
+                    {% else %}
+                    <a class="nav-link" href="{{path('app_login')}}">Login</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
