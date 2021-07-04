@@ -6,17 +6,37 @@
 <div class="content">
     <h1>S'enregistrer</h1>
 
-    <div class="contentForm">
-        {{ form_start(registrationForm) }}
-            {{ form_row(registrationForm.email) }}
-            {{ form_row(registrationForm.pseudo) }}
-            {{ form_row(registrationForm.password) }}
-
-            <div class="field">
-                <button type="submit" class="button">Register</button>
+    {{ form_start(registrationForm) }}
+        <div class="field">
+            {{ form_label(registrationForm.email) }}
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'input'}}) }}
+            {{ form_help(registrationForm.email) }}
+            <div class="form-error">
+                {{ form_errors(registrationForm.email) }}
             </div>
-        {{ form_end(registrationForm) }}
-    </div>
+        </div>
+
+        <div class="field">
+            {{ form_label(registrationForm.pseudo) }}
+            {{ form_widget(registrationForm.pseudo, {'attr': {'class': 'input'}}) }}
+            {{ form_help(registrationForm.pseudo) }}
+            <div class="form-error">
+                {{ form_errors(registrationForm.pseudo) }}
+            </div>
+        </div>
+
+        <div class="field">
+            {{ form_widget(registrationForm.password) }}
+            <!-- <div class="form-error">
+                {{ form_errors(registrationForm.password) }}
+            </div> -->
+        </div>
+
+        <div class="field">
+            <button type="submit" class="button">Valider</button>
+        </div>
+    {{ form_end(registrationForm) }}
+    
 </div>
     
 {% endblock %}
