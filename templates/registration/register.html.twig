@@ -11,25 +11,21 @@
             {{ form_label(registrationForm.email) }}
             {{ form_widget(registrationForm.email, {'attr': {'class': 'input'}}) }}
             {{ form_help(registrationForm.email) }}
-            <div class="form-error">
-                {{ form_errors(registrationForm.email) }}
-            </div>
+            {{ form_errors(registrationForm.email) }}
+            
         </div>
 
         <div class="field">
             {{ form_label(registrationForm.pseudo) }}
             {{ form_widget(registrationForm.pseudo, {'attr': {'class': 'input'}}) }}
             {{ form_help(registrationForm.pseudo) }}
-            <div class="form-error">
-                {{ form_errors(registrationForm.pseudo) }}
-            </div>
+            {{ form_errors(registrationForm.pseudo) }}
+            
         </div>
 
         <div class="field">
             {{ form_widget(registrationForm.password) }}
-            <!-- <div class="form-error">
-                {{ form_errors(registrationForm.password) }}
-            </div> -->
+            {{ form_errors(registrationForm.password) }}
         </div>
 
         <div class="field">
