@@ -2,14 +2,21 @@
     @include mtd_button();
 }
 
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section:nth-child(1) {
+    margin-top: 100px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
-    position: relative;
-    top: 100px;
     // justify-content: center;
     align-items: center;
-    width: 1200px;
+    // width: 1200px;
     margin: 0 auto;
 }
 
@@ -70,9 +77,8 @@ h1 {
     display: flex;
 }
 
-.content h1 {
+.container h1 {
     font-size: 2em;
-    margin-bottom: 0.5em;
 }
 
 .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
@@ -181,4 +187,10 @@ hr {
     color: #842029;
     background-color: #f8d7da;
     border-color: #f5c2c7;
+}
+
+.alert-warning {
+    color: #664d03;
+    background-color: #fff3cd;
+    border-color: #ffecb5;
 }

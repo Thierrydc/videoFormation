@@ -13,8 +13,10 @@ class AppController extends AbstractController
      */
     public function index(): Response
     {
+        $user = $this->getUser();
+
         return $this->render('app/index.html.twig', [
-            'controller_name' => 'AppController',
+            'user' => $user,
         ]);
     }
 }

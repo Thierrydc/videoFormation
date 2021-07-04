@@ -3,22 +3,31 @@
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
-<div class="content">
-    <h1>Bienvenue sur votre page profil</h4>
+<section id="profile">
+    <div class="wrapper">
+        <div class="container">
+            <h1>Bienvenue sur votre page profil</h1>
+        
 
-    <div class="row">
-        <h6 class="mb-0">Pseudo</h6>
-        {{ user.pseudo }}
-      </div>
-      <hr>
-      <div class="row">
-          <h6 class="mb-0">Email</h6>
-          {{ user.email }}
-      </div>
-      <hr>
+            
+                <div class="row">
+                    <h6 class="mb-0 label">Pseudo</h6>
+                    <p>{{ user.pseudo }}</p>
+                </div>
+                <hr>
+                <div class="row">
+                    <h6 class="mb-0 label">Email</h6>
+                    <p>{{ user.email }}</p>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="field">
+                        <a class="button" target="__blank" href="{{ path('app_user_edit')}}">Edit</a>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</section>
 
-      <div class="row">
-          <a class="btn btn-info " target="__blank" href="{{ path('app_user_edit')}}">Edit</a>
-      </div>
-</div>
 {% endblock %}
