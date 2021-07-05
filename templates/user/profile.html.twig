@@ -7,24 +7,22 @@
     <div class="wrapper">
         <div class="container">
             <h1>Bienvenue sur votre page profil</h1>
-        
-
             
-                <div class="row">
-                    <h6 class="mb-0 label">Pseudo</h6>
-                    <p>{{ user.pseudo }}</p>
+            <div class="row">
+                <h6 class="mb-0 label">Pseudo</h6>
+                <p>{{ user.pseudo }}</p>
+            </div>
+            <hr>
+            <div class="row">
+                <h6 class="mb-0 label">Email</h6>
+                <p>{{ user.email }}</p>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="field">
+                    <a class="button" target="__blank" href="{{ path('app_user_edit')}}">Edit</a>
                 </div>
-                <hr>
-                <div class="row">
-                    <h6 class="mb-0 label">Email</h6>
-                    <p>{{ user.email }}</p>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="field">
-                        <a class="button" target="__blank" href="{{ path('app_user_edit')}}">Edit</a>
-                    </div>
-                </div>
+            </div>
             
         </div>
     </div>

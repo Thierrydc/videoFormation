@@ -1,8 +1,15 @@
 
 #profile {
+    h1 {
+        margin-bottom: 2em;
+    }
+
     .row {
+        width: 100%;
+
         .label {
-            justify-content: flex-start;
+            font-weight: bold;
+            width: 40%;
         }
     }
 }
