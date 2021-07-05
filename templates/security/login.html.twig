@@ -8,7 +8,7 @@
         <div class="content">
             <form method="post">
                 {% if error %}
-                    <div class="alert alert-warning">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    <div class="alert alert-warning">Les informations sont incorrecte</div>
                 {% endif %}
         
                 {% if app.user %}

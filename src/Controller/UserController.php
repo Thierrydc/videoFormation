@@ -2,9 +2,15 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\ProfileEditType;
+use App\Form\RegistrationFormType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 
 class UserController extends AbstractController
 {
@@ -23,8 +29,28 @@ class UserController extends AbstractController
     /**
      * @Route("/profile/edit", name="app_user_edit")
      */
-    public function edit(): Response
+    public function edit(EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder, Request $request): Response
     {
-        
+        $user = $this->getUser();
+        $form = $this->createForm(RegistrationFormType::class, $user);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isvalid()) {
+            // encode the plain password
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('password')->getData()
+                )
+            );
+
+            $em->flush();
+            return $this->redirectToRoute('app_user_profile');
+        }
+
+        return $this->render('registration/register.html.twig', [
+            'user' => $user,
+            'registrationForm' =>$form->createView(),
+        ]);
     }
 }
