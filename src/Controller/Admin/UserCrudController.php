@@ -31,5 +31,5 @@ class UserCrudController extends AbstractCrudController
             TextField::new('pseudo'),
         ];
     }
-    
+
 }
