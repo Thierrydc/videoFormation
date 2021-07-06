@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormationController!{% endblock %}
+
+{% block body %}
+<section>
+    <div class="wrapper">
+        <div class="content">
+        <h1>Ajouter une formation</h1>
+
+            {{ form_start(form) }}
+                <div class="field">
+                    {{ form_label(form.title) }}
+                    {{ form_widget(form.title, {'attr': {'class': 'input'}}) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.description) }}
+                    {{ form_widget(form.description, {'attr': {'class': 'input'}}) }}
+                    {{ form_help(form.description) }}
+                    {{ form_errors(form.description) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.duration) }}
+                    {{ form_widget(form.duration, {'attr': {'class': 'input'}}) }}
+                    {{ form_help(form.duration) }}
+                    {{ form_errors(form.duration) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.video_file) }}
+                    {{ form_widget(form.video_file, {'attr': {'class': 'input'}}) }}
+                    {{ form_help(form.video_file) }}
+                    {{ form_errors(form.video_file) }}
+                </div>
+        
+                <div class="field">
+                    {{ form_label(form.category) }}
+                    {{ form_widget(form.category, {'attr': {'class': 'input'}}) }}
+                    {{ form_help(form.category) }}
+                    {{ form_errors(form.category) }}
+                </div>
+        
+                <div class="field">
+                    <button class="button">Ajouter</button>
+                </div>
+            {{ form_end(form) }}
+</div>
+    </div>
+</section>
+
+{% endblock %}

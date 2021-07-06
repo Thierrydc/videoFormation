@@ -2,11 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\FormationRepository;
+use App\Entity\User;
+use DateTimeInterface;
+use App\Entity\Category;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\FormationRepository;
 
 /**
  * @ORM\Entity(repositoryClass=FormationRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Formation
 {
@@ -52,6 +56,12 @@ class Formation
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="formations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
 
     public function getId(): ?int
     {
@@ -111,11 +121,19 @@ class Formation
         return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->created_at = $created_at;
+        $this->created_at = $createdAt;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->created_at = new \DateTime();
     }
 
     public function getUpdatedAt(): ?\DateTimeInterface
@@ -130,6 +148,15 @@ class Formation
         return $this;
     }
 
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function setUpdateAtValue()
+    {
+        $this->updated_at = new \DateTime();
+    }
+
     public function getCategory(): ?Category
     {
         return $this->category;
@@ -138,6 +165,18 @@ class Formation
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }
