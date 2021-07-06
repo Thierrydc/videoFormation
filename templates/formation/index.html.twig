@@ -3,19 +3,25 @@
 {% block title %}Hello FormationController!{% endblock %}
 
 {% block body %}
-<section>
+<section id="formation_index">
     <div class="wrapper">
         <div class="content">
-        <h1>Liste des formations</h1>
+            <h1>Liste des formations</h1>
 
-        This friendly message is coming from:
-        <ul>
-            <li>Your controller at <code><a href="{{ 'C:/wamp64/www/videoFormation/src/Controller/FormationController.php'|file_link(0) }}">src/Controller/FormationController.php</a></code></li>
-            <li>Your template at <code><a href="{{ 'C:/wamp64/www/videoFormation/templates/formation/index.html.twig'|file_link(0) }}">templates/formation/index.html.twig</a></code></li>
-        </ul>
-</div>
+            {% for formation in formations %}
+                <div class="card">
+                    <a href="">
+                        <div class="card-content">
+                            <h5>{{formation.title}}</h5>
+                            <img src="assets/img/pasdephoto.jpg" alt="photo">
+                            <p>Durée : {{formation.duration ? formation.duration|date('H:i') : ''}}</p>
+                            <p>La categorie</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </section>
-
 
 {% endblock %}
