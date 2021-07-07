@@ -48,7 +48,7 @@ class FormationController extends AbstractController
             $entityManager->persist($formation);
             $entityManager->flush();
 
-            return $this->redirectToRoute('formations_index');
+            return $this->redirectToRoute('app_main_home');
         }
 
         return $this->render('formation/new.html.twig', [

@@ -37,6 +37,11 @@
 
 #formation_index {
 
+    .list_formation {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
     .card {
         margin: 1rem;
         box-shadow:  0 2px 8px rgba(0, 0, 0, 0.2), 0 0.5px 1px rgba(168, 121, 121, 0.8);
@@ -48,6 +53,7 @@
         color: #616161;
         position: relative;
         border-radius: .25rem;
+        width: 30%;
 
         .card-content {
             width: 100%;

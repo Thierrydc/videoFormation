@@ -15,11 +15,10 @@ class AppController extends AbstractController
      */
     public function index(FormationRepository $formationRepo, Request $request ): Response
     {
-        $user = $this->getUser();
+        // $user = $this->getUser();
         $formations = $formationRepo->findAll();
 
         return $this->render('formation/index.html.twig', [
-            'user' => $user,
             'formations' => $formations,
         ]);
     }
