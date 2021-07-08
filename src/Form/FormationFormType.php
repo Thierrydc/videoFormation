@@ -28,7 +28,7 @@ class FormationFormType extends AbstractType
                 'allow_delete' => true,
                 'delete_label' => 'remove Photo',
                 'download_uri' => true,
-                'download_label' => 'Download Photo',
+                'download_label' => 'Download Photo'
             ])
         ;
     }
