@@ -7,10 +7,13 @@ use DateTimeInterface;
 use App\Entity\Category;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\FormationRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=FormationRepository::class)
  * @ORM\HasLifecycleCallbacks()
+ * @Vich\Uploadable
  */
 class Formation
 {
@@ -67,6 +70,13 @@ class Formation
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="image", fileNameProperty="image")
+     *
+     * @var File|null
+     */
+    private $imageFile;
 
     public function getId(): ?int
     {
@@ -196,5 +206,29 @@ class Formation
         $this->image = $image;
 
         return $this;
+    }
+
+    /**
+     * Get the value of mediaFile.
+     *
+     * @return File|null
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updated_at = new \DateTimeImmutable();
+        }
     }
 }
