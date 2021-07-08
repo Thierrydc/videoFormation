@@ -12,10 +12,9 @@
                     <div class="card">
                         <a href="{{ path('formation_show', {'id': formation.id}) }}">
                             <div class="card-content">
-                                <h5>{{formation.title}}</h5>
+                                <h4>{{formation.title}}</h5>
                                 <img src="./uploads/images/{{formation.image}}" alt="logo technology">
                                 <p>Durée : {{formation.duration ? formation.duration|date('H:i') : ''}}</p>
-                                <p>Catégorie : {{formation.category}}</p>
                             </div>
                         </a>
                     </div>
