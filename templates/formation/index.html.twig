@@ -10,7 +10,7 @@
             <div class="list_formation">
                 {% for formation in formations %}
                     <div class="card">
-                        <a href="">
+                        <a href="{{ path('formation_show', {'id': formation.id}) }}">
                             <div class="card-content">
                                 <h5>{{formation.title}}</h5>
                                 <img src="./uploads/images/{{formation.image}}" alt="logo technology">

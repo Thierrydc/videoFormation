@@ -60,4 +60,14 @@ class FormationController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    
+    /**
+     * @Route("/formation/{id}", name="formation_show")
+     */
+    public function show(Formation $formation, Request $request): Response
+    {
+        return $this->render('formation/show.html.twig', [
+            'formation' =>$formation,
+        ]);
+    }
 }
