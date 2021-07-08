@@ -42,7 +42,14 @@ class Formation
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $video_file;
+    private $video;
+
+    /**
+     * @Vich\UploadableField(mapping="video", fileNameProperty="video")
+     *
+     * @var File|null
+     */
+    private $videoFile;
 
     /**
      * @ORM\Column(type="datetime")
@@ -119,16 +126,40 @@ class Formation
         return $this;
     }
 
-    public function getVideoFile(): ?string
+    public function getVideo(): ?string
     {
-        return $this->video_file;
+        return $this->video;
     }
 
-    public function setVideoFile(?string $video_file): self
+    public function setVideo(?string $video): self
     {
-        $this->video_file = $video_file;
+        $this->video = $video;
 
         return $this;
+    }
+
+    /**
+     * Get the value of mediaFile.
+     *
+     * @return File|null
+     */
+    public function getVideoFile()
+    {
+        return $this->videoFile;
+    }
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $videoFile
+     */
+    public function setVideoFile(?File $videoFile = null): void
+    {
+        $this->videoFile = $videoFile;
+
+        if (null !== $videoFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updated_at = new \DateTimeImmutable();
+        }
     }
 
     public function getCreatedAt(): ?\DateTimeInterface
