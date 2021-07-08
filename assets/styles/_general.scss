@@ -7,8 +7,13 @@
     margin: 0 auto;
 }
 
-section:nth-child(1) {
-    margin-top: 100px;
+
+section {
+    width: 100%;
+
+    &:nth-child(1) {
+        margin-top: 100px;
+    }
 }
 
 .container {

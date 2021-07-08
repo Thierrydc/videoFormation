@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormationController!{% endblock %}
+
+{% block body %}
+<section id="formation_show">
+    <div class="wrapper">
+        <div class="content">
+            <video controls>
+                <source src="/uploads/videos/{{ formation.video}}"
+                        type="video/mp4">
+
+                Sorry, your browser doesn't support embedded videos.
+            </video>
+            <div>
+                <h1>{{ formation.title}}</h1>
+                <textarea readonly disabled rows="50" cols="100">{{formation.description}}</textarea>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

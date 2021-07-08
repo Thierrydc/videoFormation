@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Formation;
 use App\Form\FormationFormType;
+use App\Repository\FormationRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,10 +25,13 @@ class FormationController extends AbstractController
     /**
      * @Route("/formation", name="formations_index")
      */
-    public function index(): Response
+    public function index(FormationRepository $formationRepo, Request $request ): Response
     {
+        // $user = $this->getUser();
+        $formations = $formationRepo->findAll();
+
         return $this->render('formation/index.html.twig', [
-            'controller_name' => 'FormationController',
+            'formations' => $formations,
         ]);
     }
 
@@ -54,6 +58,16 @@ class FormationController extends AbstractController
         return $this->render('formation/new.html.twig', [
             'formation' =>$formation,
             'form' => $form->createView(),
+        ]);
+    }
+    
+    /**
+     * @Route("/formation/{id}", name="formation_show")
+     */
+    public function show(Formation $formation, Request $request): Response
+    {
+        return $this->render('formation/show.html.twig', [
+            'formation' =>$formation,
         ]);
     }
 }

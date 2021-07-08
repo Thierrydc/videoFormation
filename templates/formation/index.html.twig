@@ -7,19 +7,21 @@
     <div class="wrapper">
         <div class="content">
             <h1>Liste des formations</h1>
-
-            {% for formation in formations %}
-                <div class="card">
-                    <a href="">
-                        <div class="card-content">
-                            <h5>{{formation.title}}</h5>
-                            <img src="assets/img/pasdephoto.jpg" alt="photo">
-                            <p>Durée : {{formation.duration ? formation.duration|date('H:i') : ''}}</p>
-                            <p>La categorie</p>
-                        </div>
-                    </a>
-                </div>
-            {% endfor %}
+            <div class="list_formation">
+                {% for formation in formations %}
+                    <div class="card">
+                        <a href="{{ path('formation_show', {'id': formation.id}) }}">
+                            <div class="card-content">
+                                <h5>{{formation.title}}</h5>
+                                <img src="./uploads/images/{{formation.image}}" alt="logo technology">
+                                <p>Durée : {{formation.duration ? formation.duration|date('H:i') : ''}}</p>
+                                <p>Catégorie : {{formation.category}}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            
         </div>
     </div>
 </section>

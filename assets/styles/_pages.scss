@@ -5,6 +5,7 @@
     }
 
     .row {
+        margin: 1rem 0;
         width: 100%;
 
         .label {
@@ -12,10 +13,35 @@
             width: 40%;
         }
     }
+
+    .container {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        gap: 1em;
+
+        .infos {
+            width: 50%;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 100%;
+        }
+    }
+
+    
+
 }
 
 #formation_index {
 
+    .list_formation {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
     .card {
         margin: 1rem;
         box-shadow:  0 2px 8px rgba(0, 0, 0, 0.2), 0 0.5px 1px rgba(168, 121, 121, 0.8);
@@ -27,9 +53,17 @@
         color: #616161;
         position: relative;
         border-radius: .25rem;
+        width: 30%;
 
         .card-content {
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                width: 50%;
+                padding: 2rem;
+            }
         }
     }
 
@@ -40,5 +74,37 @@
 
     .content:not(:last-child)  {
         margin-bottom: 1.5rem;
+    }
+}
+
+#formation_new {
+
+    h1 {
+        text-align: center;
+    }
+
+    form {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+#formation_show {
+
+    .content {
+        width: 80%;
+        margin: 0 auto;
+
+        textarea {
+            width: 100%;
+            resize: none;
+            background: white;
+            font-size: 1rem;
+        }
+    }
+
+    video {
+        margin: 1rem auto;
+        width: 100%;
     }
 }
