@@ -156,6 +156,11 @@ button, input, select, textarea {
     padding-top: calc(.5em - 1px);
     text-align: center;
     white-space: nowrap;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+        border-color: #aaaaaa;
+    }
 }
 
 .field:not(:last-child) {
@@ -204,3 +209,18 @@ hr {
     background-color: #fff3cd;
     border-color: #ffecb5;
 }
+
+table {
+
+    td, th {
+        border: 1px solid #dbdbdb;
+        border-color: #f5f5f5;
+        border-width: 0 0 1px;
+        padding: 0.5rem .75rem;
+    }
+
+    th {
+        text-align: left;
+    }
+}
+
