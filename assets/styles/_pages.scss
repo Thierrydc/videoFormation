@@ -10,7 +10,7 @@
 
         .label {
             font-weight: bold;
-            width: 40%;
+            width: 20%;
         }
     }
 
@@ -20,14 +20,16 @@
         gap: 1em;
 
         .infos {
-            width: 50%;
         }
 
         .actions {
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
             height: 100%;
+
+            &>div {
+                margin-bottom: 1rem;
+            }
         }
     }
 
