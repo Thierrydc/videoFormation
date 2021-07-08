@@ -93,6 +93,14 @@
 
     .content {
         width: 80%;
+        margin: 0 auto;
+
+        textarea {
+            width: 100%;
+            resize: none;
+            background: white;
+            font-size: 1rem;
+        }
     }
 
     video {
