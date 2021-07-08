@@ -5,35 +5,36 @@
 {% block body %}
 <section id="profile">
     <div class="wrapper">
-        <h1>Bienvenue sur votre page profil</h1>
-        <div class="container">
-            <div class="infos">
-            <div class="row">
-                <h6 class="mb-0 label">Pseudo</h6>
-                <p>{{ user.pseudo }}</p>
+        <div class="content">
+            <h1>Bienvenue sur votre page profil</h1>
+            <div class="container">
+                <div class="infos">
+                <div class="row">
+                    <h6 class="mb-0 label">Pseudo</h6>
+                    <p>{{ user.pseudo }}</p>
+                </div>
+                
+                <div class="row">
+                    <h6 class="mb-0 label">Email</h6>
+                    <p>{{ user.email }}</p>
+                </div>
+                
+                <div class="row">
+                    <div class="field">
+                        <a class="button" href="{{ path('app_user_edit')}}">Edit</a>
+                    </div>
+                </div>
             </div>
-            
-            <div class="row">
-                <h6 class="mb-0 label">Email</h6>
-                <p>{{ user.email }}</p>
-            </div>
-            
-            <div class="row">
-                <div class="field">
-                    <a class="button" href="{{ path('app_user_edit')}}">Edit</a>
+
+            <div class="actions">
+                <div>
+                    <a href="" type="button" class="button">Voir mes formations</a>
+                </div>
+                <div>
+                    <a href="{{ path('formation_new')}}" type="button" class="button">Ajouter une formation</a>
                 </div>
             </div>
         </div>
-
-        <div class="actions">
-            <div>
-                <a href="" type="button" class="button">Voir mes formations</a>
-            </div>
-            <div>
-                <a href="{{ path('formation_new')}}" type="button" class="button">Ajouter une formation</a>
-            </div>
-        </div>
-        
     </div>
 </section>
 
