@@ -99,6 +99,15 @@
     form {
         max-width: 800px;
         margin: 0 auto;
+
+        #category-duration {
+            display: grid;
+            grid-template-columns: auto 100px;
+
+            select {
+                font-size: 1rem;
+            }
+        }
     }
 }
 

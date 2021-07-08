@@ -20,14 +20,20 @@
                     {{ form_help(form.description) }}
                     {{ form_errors(form.description) }}
                 </div>
-
-                <div class="field">
-                    {{ form_label(form.duration) }}
-                    {{ form_widget(form.duration, {'attr': {'class': 'input'}}) }}
-                    {{ form_help(form.duration) }}
-                    {{ form_errors(form.duration) }}
+                <div id="category-duration">
+                    <div class="field">
+                        {{ form_label(form.category) }}
+                        {{ form_widget(form.category, {'attr': {'class': 'input'}}) }}
+                        {{ form_help(form.category) }}
+                        {{ form_errors(form.category) }}
+                    </div>
+                    <div class="field" id="duration">
+                        {{ form_label(form.duration) }}
+                        {{ form_widget(form.duration, {'attr': {'class': 'input'}}) }}
+                        {{ form_help(form.duration) }}
+                        {{ form_errors(form.duration) }}
+                    </div>
                 </div>
-
                 <div class="field">
                     {{ form_label(form.videoFile) }}
                     {{ form_widget(form.videoFile, {'attr': {'class': 'input'}}) }}
@@ -40,13 +46,6 @@
                     {{ form_widget(form.imageFile, {'attr': {'class': 'input'}}) }}
                     {{ form_help(form.imageFile) }}
                     {{ form_errors(form.imageFile) }}
-                </div>
-        
-                <div class="field">
-                    {{ form_label(form.category) }}
-                    {{ form_widget(form.category, {'attr': {'class': 'input'}}) }}
-                    {{ form_help(form.category) }}
-                    {{ form_errors(form.category) }}
                 </div>
         
                 <div class="field">
