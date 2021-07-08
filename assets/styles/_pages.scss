@@ -56,7 +56,14 @@
         width: 30%;
 
         .card-content {
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                width: 50%;
+                padding: 2rem;
+            }
         }
     }
 
