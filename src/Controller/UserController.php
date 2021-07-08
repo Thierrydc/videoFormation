@@ -6,6 +6,7 @@ use App\Form\ProfileEditType;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -51,6 +52,19 @@ class UserController extends AbstractController
         return $this->render('registration/register.html.twig', [
             'user' => $user,
             'registrationForm' =>$form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/user_myformation", name="app_user_myformation")
+     */
+    public function myFormation(Security $security, Request $request) : Response
+    {
+        $user = $security->getUser();
+        // $formations = $user->getFormations();
+
+        return $this->render('user/myformation.html.twig', [
+            'user' => $user
         ]);
     }
 }
