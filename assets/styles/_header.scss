@@ -8,6 +8,21 @@ header nav {
     align-items: flex-start;
     box-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
 
+    #logo {
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+
+        a {
+            color: darkslateblue;
+            font-weight: bold;
+
+            span {
+                color: gold;
+            }
+        }
+    }
+
     #menuNav {
         max-width: 1200px;
         margin: 0 auto;
