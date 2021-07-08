@@ -6,15 +6,16 @@
 <section id="formation_show">
     <div class="wrapper">
         <div class="content">
-        <h1>{{ formation.title}}</h1>
+            <video controls>
+                <source src="/uploads/videos/{{ formation.video}}"
+                        type="video/mp4">
 
-        <video controls width="250">
-            <source src="/uploads/videos/{{ formation.video}}"
-                    type="video/mp4">
-
-            Sorry, your browser doesn't support embedded videos.
-        </video>
-            
+                Sorry, your browser doesn't support embedded videos.
+            </video>
+            <div>
+                <h1>{{ formation.title}}</h1>
+                <p>{{formation.description}}</p>
+            </div>
         </div>
     </div>
 </section>
