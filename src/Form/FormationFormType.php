@@ -22,6 +22,7 @@ class FormationFormType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'name'
             ])
+            ->add('image')
         ;
     }
 

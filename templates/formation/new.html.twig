@@ -3,7 +3,7 @@
 {% block title %}Hello FormationController!{% endblock %}
 
 {% block body %}
-<section>
+<section id="formation_new">
     <div class="wrapper">
         <div class="content">
         <h1>Ajouter une formation</h1>
@@ -33,6 +33,13 @@
                     {{ form_widget(form.video_file, {'attr': {'class': 'input'}}) }}
                     {{ form_help(form.video_file) }}
                     {{ form_errors(form.video_file) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.image) }}
+                    {{ form_widget(form.image, {'attr': {'class': 'input'}}) }}
+                    {{ form_help(form.image) }}
+                    {{ form_errors(form.image) }}
                 </div>
         
                 <div class="field">
