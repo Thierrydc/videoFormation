@@ -73,16 +73,13 @@ class FormationController extends AbstractController
     public function delete(Request $request, Formation $formation, Security $security): Response
     {
         $user = $security->getUser();
-        $submittedToken = $request->request->get('_token');
-
+        $submittedToken = $request->request->get('token');
+        
         if ($user === $formation->getAuthor()) {
-            dd($this->isCsrfTokenValid('delete-formation'.$formation->getId() , $submittedToken));
-
             if ($this->isCsrfTokenValid('delete-formation', $submittedToken)) {
-
-                // $entityManager = $this->getDoctrine()->getManager();
-                // $entityManager->remove($formation);
-                // $entityManager->flush();
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($formation);
+                $entityManager->flush();
 
                 return $this->redirectToRoute('app_user_myformation');
             }
