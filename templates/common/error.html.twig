@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ error }} - {{ message }}{% endblock %}
+
+{% block body %}
+<section id="error"></section>
+    <div class="wrapper">
+        <div class="content">
+            <div class="alert alert-warning">
+                <p>{{error}} - {{message}}</p>
+            </div>
+            <a href="{{ path('formations_index') }}">
+                <button class="button" type="button">Retour</button>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

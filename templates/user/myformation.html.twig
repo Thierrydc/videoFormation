@@ -24,14 +24,16 @@
                             <td>{{formation.title}}</td>
                             <td>{{formation.category}}</td>
                             <td><a href="editproduct.php?id=<?php echo $bien['id']; ?>" class="button">Modify</a></td>
+                            {# <td><a href="{{ path('formation_delete', {'id':formation.id}) }}" class="button">Delete</a></td> #}
                             <td>
-                                <form action="delete.php" method="post">
-                                    <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
-                                    <input type="hidden" name="id" value="<?php echo $bien['id'] ?>">
-                                    <input type="hidden" name="table" value="biens">
-                                    <input type="submit" class="button" value="delete" name="delete">
+                                <form action="{{ url('formation_delete', { id: formation.id }) }}" method="post">
+                                    {# the argument of csrf_token() is an arbitrary string used to generate the token #}
+                                    <input type="hidden" name="token" value="{{ csrf_token('delete-formation' ~ formation.id)}}"/>
+                                
+                                    <button class="button" type="submit">Delete</button>
                                 </form>
                             </td>
+                           
                         </tr>
                         {% endfor %}
                     </tbody>

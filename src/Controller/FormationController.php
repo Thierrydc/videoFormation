@@ -6,21 +6,14 @@ use App\Entity\Formation;
 use App\Form\FormationFormType;
 use App\Repository\FormationRepository;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class FormationController extends AbstractController
 {
-
-    private $security;
-
-    public function __construct(Security $security)
-    {
-        $this->security = $security;
-    }
 
     /**
      * @Route("/formation", name="formations_index")
@@ -46,7 +39,7 @@ class FormationController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid() ) {
-            $user = $this->security->getUser();
+            $user = $security->getUser();
             $formation->setAuthor($user);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($formation);
@@ -70,4 +63,35 @@ class FormationController extends AbstractController
             'formation' =>$formation,
         ]);
     }
+
+
+/**
+     * @IsGranted("ROLE_USER", statusCode=401 ,message="You have to be logged-in to access this ressource")
+     * @Route("formation_delete/{id}", name="formation_delete")
+     */
+
+    public function delete(Request $request, Formation $formation, Security $security): Response
+    {
+        $user = $security->getUser();
+        $submittedToken = $request->request->get('_token');
+
+        if ($user === $formation->getAuthor()) {
+            dd($this->isCsrfTokenValid('delete-formation'.$formation->getId() , $submittedToken));
+
+            if ($this->isCsrfTokenValid('delete-formation', $submittedToken)) {
+
+                // $entityManager = $this->getDoctrine()->getManager();
+                // $entityManager->remove($formation);
+                // $entityManager->flush();
+
+                return $this->redirectToRoute('app_user_myformation');
+            }
+        }
+
+        return $this->render('common/error.html.twig', [
+            'error' => '401',
+            'message' => 'You have to be logged-in to access this ressource',
+        ]);
+    }
+
 }
