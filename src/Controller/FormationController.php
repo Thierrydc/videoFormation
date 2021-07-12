@@ -67,7 +67,7 @@ class FormationController extends AbstractController
     }
 
 
-/**
+    /**
      * @IsGranted("ROLE_USER", statusCode=401 ,message="You have to be logged-in to access this ressource")
      * @Route("formation_delete/{id}", name="formation_delete")
      */
