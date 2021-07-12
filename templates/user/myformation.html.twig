@@ -23,7 +23,7 @@
                         <tr>
                             <td>{{formation.title}}</td>
                             <td>{{formation.category}}</td>
-                            <td><a href="editproduct.php?id=<?php echo $bien['id']; ?>" class="button">Modify</a></td>
+                            <td><a href="{{ url('formation_edit', { id: formation.id }) }}" class="button">Modify</a></td>
                             {# <td><a href="{{ path('formation_delete', {'id':formation.id}) }}" class="button">Delete</a></td> #}
                             <td>
                                 <form action="{{ url('formation_delete', { id: formation.id }) }}" method="post">
