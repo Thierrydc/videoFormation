@@ -29,39 +29,32 @@ class FormationController extends AbstractController
     }
 
     /**
-     * @Route("/formation_edit/{id}", name="formation_edit")
-     */
-    public function edit(Formation $formation, Request $request): Response
-    {
-        
-    }
-    
-
-    /**
      * @IsGranted("ROLE_EDITOR", statusCode=401 ,message="Vous devez avoir le role Editeur pour accéder à cette ressource")
      * @Route("/formation_new", name="formation_new")
      */
-    public function new(Request $request, Security $security): Response
-    {
-        $formation = new Formation();
-        $form = $this->createForm(FormationFormType::class, $formation);
-        $form->handleRequest($request);
+     public function new(Request $request, Security $security): Response
+     {
+         $formation = new Formation();
+         $form = $this->createForm(FormationFormType::class, $formation);
+         $form->handleRequest($request);
+ 
+         if($form->isSubmitted() && $form->isValid() ) {
+             $user = $security->getUser();
+             $formation->setAuthor($user);
+             $entityManager = $this->getDoctrine()->getManager();
+             $entityManager->persist($formation);
+             $entityManager->flush();
+ 
+             return $this->redirectToRoute('formations_index');
+         }
+ 
+         return $this->render('formation/new.html.twig', [
+             'formation' =>$formation,
+             'form' => $form->createView(),
+         ]);
+     }
 
-        if($form->isSubmitted() && $form->isValid() ) {
-            $user = $security->getUser();
-            $formation->setAuthor($user);
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($formation);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('formations_index');
-        }
-
-        return $this->render('formation/new.html.twig', [
-            'formation' =>$formation,
-            'form' => $form->createView(),
-        ]);
-    }
+    
     
     /**
      * @Route("/formation/{id}", name="formation_show")
@@ -100,4 +93,12 @@ class FormationController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/formation_edit/{id}", name="formation_edit")
+     */
+     public function edit(Formation $formation, Request $request): Response
+     {
+         
+     }
 }
