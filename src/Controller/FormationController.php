@@ -29,6 +29,15 @@ class FormationController extends AbstractController
     }
 
     /**
+     * @Route("/formation_edit/{id}", name="formation_edit")
+     */
+    public function edit(Formation $formation, Request $request): Response
+    {
+        
+    }
+    
+
+    /**
      * @IsGranted("ROLE_EDITOR", statusCode=401 ,message="Vous devez avoir le role Editeur pour accéder à cette ressource")
      * @Route("/formation_new", name="formation_new")
      */
