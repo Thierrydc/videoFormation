@@ -29,7 +29,7 @@ class FormationController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_EDITOR", statusCode=401 ,message="Vous devez avoir le role Editeur pour accéder à cette ressource")
+     * @IsGranted("ROLE_EDITOR", statusCode=401 ,message="Vous devez être connecté pour accéder à cette ressource")
      * @Route("/formation_new", name="formation_new")
      */
      public function new(Request $request, Security $security): Response
@@ -68,7 +68,7 @@ class FormationController extends AbstractController
 
 
     /**
-     * @IsGranted("ROLE_USER", statusCode=401 ,message="You have to be logged-in to access this ressource")
+     * @IsGranted("ROLE_EDITOR", statusCode=401 ,message="Vous devez être connecté pour accéder à cette ressource")
      * @Route("formation_delete/{id}", name="formation_delete")
      */
 
@@ -89,12 +89,13 @@ class FormationController extends AbstractController
 
         return $this->render('common/error.html.twig', [
             'error' => '401',
-            'message' => 'You have to be logged-in to access this ressource',
+            'message' => 'Vous devez être connecté pour accéder à cette ressource',
         ]);
     }
 
 
     /**
+     * @IsGranted("ROLE_EDITOR", statusCode=401 ,message="Vous devez être connecté pour avoir accès a cette ressource")
      * @Route("/formation_edit/{id}", name="formation_edit")
      */
      public function edit(Security $security, Formation $formation, Request $request): Response

@@ -23,17 +23,15 @@
                         <tr>
                             <td>{{formation.title}}</td>
                             <td>{{formation.category}}</td>
-                            <td><a href="{{ url('formation_edit', { id: formation.id }) }}" class="button">Modify</a></td>
-                            {# <td><a href="{{ path('formation_delete', {'id':formation.id}) }}" class="button">Delete</a></td> #}
+                            <td><a href="{{ url('formation_edit', { id: formation.id }) }}" class="button">Modifier</a></td>
                             <td>
                                 <form action="{{ url('formation_delete', { id: formation.id }) }}" method="post">
                                     {# the argument of csrf_token() is an arbitrary string used to generate the token #}
                                     <input type="hidden" name="token" value="{{ csrf_token('delete-formation')}}"/>
                                 
-                                    <button class="button" type="submit">Delete</button>
+                                    <button class="button" type="submit">Supprimer</button>
                                 </form>
                             </td>
-                           
                         </tr>
                         {% endfor %}
                     </tbody>
