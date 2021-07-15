@@ -97,8 +97,25 @@ class FormationController extends AbstractController
     /**
      * @Route("/formation_edit/{id}", name="formation_edit")
      */
-     public function edit(Formation $formation, Request $request): Response
+     public function edit(Security $security, Formation $formation, Request $request): Response
      {
-         
-     }
+        $form = $this->createForm(FormationFormType::class, $formation);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid() ) {
+            $user = $security->getUser();
+            // $formation->setAuthor($user);
+            $entityManager = $this->getDoctrine()->getManager();
+            // $entityManager->persist($formation);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('formations_index');
+        }
+
+        return $this->render('formation/new.html.twig', [
+            'formation' =>$formation,
+            'form' => $form->createView(),
+        ]);
+    }
+    
 }

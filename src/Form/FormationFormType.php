@@ -20,10 +20,8 @@ class FormationFormType extends AbstractType
             ->add('duration')
             ->add('videoFile', VichFileType::class, [
                 'required' => false,
-                'allow_delete' => true,
-                'delete_label' => 'remove Photo',
-                'download_uri' => true,
-                'download_label' => 'Download Photo'
+                'allow_delete' => false,
+                'download_uri' => false,
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
@@ -31,10 +29,8 @@ class FormationFormType extends AbstractType
             ])
             ->add('imageFile', VichFileType::class, [
                 'required' => false,
-                'allow_delete' => true,
-                'delete_label' => 'remove Photo',
-                'download_uri' => true,
-                'download_label' => 'Download Photo'
+                'allow_delete' => false,
+                'download_uri' => false,
             ])
         ;
     }
