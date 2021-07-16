@@ -14,7 +14,9 @@
                             <div class="card-content">
                                 <h4>{{formation.title}}</h5>
                                 <img src="./uploads/images/{{formation.image}}" alt="logo technology">
-                                <p>Durée : {{formation.duration ? formation.duration|date('H:i') : ''}}</p>
+                                <div class="footer">
+                                    <p>{{formation.duration ? formation.duration|date('H:i') : ''}}</p>
+                                </div>
                             </div>
                         </a>
                     </div>
