@@ -50,12 +50,16 @@
     }
 
     .list_formation {
-        display: flex;
-        flex-wrap: wrap;
+        // display: flex;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
+        grid-gap: calc(4 * 8px);
+        // grid-auto-flow: dense;
     }
     
     .card {
-        margin: 1rem;
+        // margin: 1rem;
         box-shadow:  0 2px 8px rgba(0, 0, 0, 0.2), 0 0.5px 1px rgba(168, 121, 121, 0.8);
         // box-shadow: rgba(0 0 0 .1) 0 2px 8px;
         transition-property: box-shadow, transform;
@@ -63,9 +67,9 @@
         transition-timing-function: cubic-bezier(0.16, 1, 0.29, 0.99);
         background-color: #fff;
         color: #616161;
-        position: relative;
+        // position: relative;
         border-radius: .25rem;
-        width: 30%;
+        // width: 30%;
 
         .card-content {
             display: flex;
