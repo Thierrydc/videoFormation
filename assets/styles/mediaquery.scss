@@ -25,11 +25,15 @@
     display: flex !important;
 
     #menuNav {
-      margin: 0 0 0 auto !important;
+      margin: 0 0 0 0 !important;
+      width: 100%;
 
       #burger {
         display: flex;
         font-size: 2.4rem;
+        position: relative;
+      top: 12px;
+      margin-right: 10px;
       }
 
       ul {
@@ -59,6 +63,11 @@
 
     }
 
+    #logo {
+      position: relative;
+      top: 11px;
+      margin-left: 20px;
+    }
   }
 
 }
@@ -73,6 +82,11 @@
       font-size: 1.4rem;
     }
     
+  }
+
+  .content {
+    max-width: 100%;
+    margin: 0 1rem;
   }
 
 }
