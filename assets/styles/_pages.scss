@@ -46,6 +46,7 @@
 
     h4 {
         margin-top: 1rem;
+        width: 90%;
         font-size: 1.1rem;
         text-align: center;
     }
@@ -53,23 +54,18 @@
     .list_formation {
         margin-top: 3rem;
         display: grid;
-        grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
-        grid-gap: calc(4 * 8px);
-        // grid-auto-flow: dense;
+        grid-template-columns: repeat(auto-fill, minmax(270px,1fr));
+        grid-gap: 32px;
     }
     
     .card {
-        // margin: 1rem;
         box-shadow:  0 2px 8px rgba(0, 0, 0, 0.2), 0 0.5px 1px rgba(168, 121, 121, 0.8);
-        // box-shadow: rgba(0 0 0 .1) 0 2px 8px;
         transition-property: box-shadow, transform;
         transition-duration: 0.6s;
         transition-timing-function: cubic-bezier(0.16, 1, 0.29, 0.99);
         background-color: #fff;
         color: #616161;
-        // position: relative;
         border-radius: .25rem;
-        // width: 30%;
         box-sizing: unset;
 
         &:hover {
@@ -141,7 +137,12 @@
 
     .content {
         width: 80%;
-        margin: 0 auto;
+        margin: 2rem auto 0 auto;
+        
+        h1 {
+            color: darkslateblue;
+            font-weight: bold;
+        }
 
         textarea {
             width: 100%;
