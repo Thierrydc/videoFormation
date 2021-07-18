@@ -51,8 +51,7 @@
     }
 
     .list_formation {
-        // display: flex;
-        // flex-wrap: wrap;
+        margin-top: 3rem;
         display: grid;
         grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
         grid-gap: calc(4 * 8px);
@@ -86,7 +85,7 @@
 
             img {
                 width: 40%;
-                padding: 1rem;
+                padding: 1.2rem;
             }
 
             .footer {
@@ -95,11 +94,11 @@
                 align-items: center;
                 width: 100%;
                 background-color: #3e2da542;
-                justify-content: flex-end;
+                justify-content: space-between;
                 
                 p {
-                    color: grey;
-                    margin-right: 1rem;
+                    color: darkslateblue;
+                    margin: 0 1rem;
                 }
             }
         }
