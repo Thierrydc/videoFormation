@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Formation;
 use App\Form\FormationFormType;
+use App\Repository\CategoryRepository;
 use App\Repository\FormationRepository;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -18,13 +20,37 @@ class FormationController extends AbstractController
     /**
      * @Route("/formation", name="formations_index")
      */
-    public function index(FormationRepository $formationRepo, Request $request ): Response
+    public function index(FormationRepository $formationRepo, CategoryRepository $CategoryRepo, Request $request ): Response
     {
         // $user = $this->getUser();
         $formations = $formationRepo->findAll();
+        $categories = $CategoryRepo->findAll();
+
+        // On vérifie si on a une requête Ajax
+        if($request->get('ajax')){
+            $categoryId = $request->query->get('cat');
+            if($categoryId > 0){
+                $formByCat = $formationRepo->findByCat($categoryId);
+    
+                return new JsonResponse([
+                    'content' => $this->renderView('formation/_content.html.twig',[
+                        'formations' => $formByCat,
+                        'categories' => $categories,
+                    ])
+                ]);
+            }
+            return new JsonResponse([
+                'content' => $this->renderView('formation/_content.html.twig',[
+                    'formations' => $formations,
+                    'categories' => $categories,
+                ])
+            ]);
+        }
+
 
         return $this->render('formation/index.html.twig', [
             'formations' => $formations,
+            'categories' => $categories,
         ]);
     }
 
@@ -65,6 +91,7 @@ class FormationController extends AbstractController
             'formation' =>$formation,
         ]);
     }
+
 
 
     /**

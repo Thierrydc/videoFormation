@@ -25,7 +25,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Formation::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=Formation::class, mappedBy="category", fetch="EAGER")
      */
     private $formations;
 

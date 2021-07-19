@@ -42,6 +42,15 @@
 
     .content {
         max-width: 90%;
+
+        &>div:first-child {
+            display: grid;
+            grid-template-columns: auto 300px;
+
+            form {
+                margin-top: 1.5rem;
+            }
+        }
     }
 
     h4 {
@@ -51,12 +60,9 @@
     }
 
     .list_formation {
-        // display: flex;
-        // flex-wrap: wrap;
         display: grid;
         grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
         grid-gap: calc(4 * 8px);
-        // grid-auto-flow: dense;
     }
     
     .card {

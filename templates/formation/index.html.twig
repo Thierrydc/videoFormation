@@ -3,28 +3,30 @@
 {% block title %}Hello FormationController!{% endblock %}
 
 {% block body %}
+
 <section id="formation_index">
     <div class="wrapper">
         <div class="content">
-            <h1>Liste des formations</h1>
+            <div>
+                <h1>Liste des formations</h1>
+                <form id="category_form">
+                    <select id="select_category" name="formation_form[category]" class="input">
+                        <option value="0">Toute</option>
+                        {% for category in categories %}
+                            <option value="{{category.id}}">{{category.name}}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+            
             <div class="list_formation">
-                {% for formation in formations %}
-                    <div class="card">
-                        <a href="{{ path('formation_show', {'id': formation.id}) }}">
-                            <div class="card-content">
-                                <h4>{{formation.title}}</h5>
-                                <img src="./uploads/images/{{formation.image}}" alt="logo technology">
-                                <div class="footer">
-                                    <p>{{formation.duration ? formation.duration|date('H:i') : ''}}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
+                {% include "formation/_content.html.twig" %}
             </div>
             
         </div>
     </div>
 </section>
 
+<script src="{{ asset('js/formation_index.js') }}"></script>
 {% endblock %}
+

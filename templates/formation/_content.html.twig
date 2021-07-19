@@ -1,0 +1,14 @@
+
+{% for formation in formations %}
+    <div class="card">
+        <a href="{{ path('formation_show', {'id': formation.id}) }}">
+            <div class="card-content">
+                <h4>{{formation.title}}</h5>
+                <img src="./uploads/images/{{formation.image}}" alt="logo technology">
+                <div class="footer">
+                    <p>{{formation.duration ? formation.duration|date('H:i') : ''}}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+{% endfor %}
