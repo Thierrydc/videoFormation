@@ -22,10 +22,16 @@ class FormationController extends AbstractController
      */
     public function index(FormationRepository $formationRepo, CategoryRepository $CategoryRepo, Request $request ): Response
     {
-        // $user = $this->getUser();
         $formations = $formationRepo->findAll();
-        $categories = $CategoryRepo->findAll();
-
+        $listCcategories = $CategoryRepo->findAll();
+        
+        // Supprime les catégories vide du filtre
+        foreach ($listCcategories as $category) {
+            if($category->getFormations()->count() > 0) {
+                $categories[] = $category;
+            }
+        }
+        
         // On vérifie si on a une requête Ajax
         if($request->get('ajax')){
             $categoryId = $request->query->get('cat');
