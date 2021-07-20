@@ -21,7 +21,6 @@ $('#burger').on('click', function(){
     event.preventDefault();
     $("#menuNav ul").slideToggle();
     $("#menuNav li").on('click', function(){
-        event.preventDefault();
         $("#menuNav ul").slideUp();
     })
 })

@@ -6,6 +6,7 @@
                 <h4>{{formation.title}}</h5>
                 <img src="./uploads/images/{{formation.image}}" alt="logo technology">
                 <div class="footer">
+                    <p>{{ formation.category }}</p>
                     <p>{{formation.duration ? formation.duration|date('H:i') : ''}}</p>
                 </div>
             </div>
