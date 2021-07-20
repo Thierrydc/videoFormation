@@ -18,7 +18,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 class DashboardController extends AbstractDashboardController
 {
     /**
-     * @Route("/admin", name="app_admin_index")
+     * @Route("/vf_admin", name="app_admin_index")
      */
     public function index(): Response
     {
@@ -45,6 +45,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::LinkToRoute('VideoFormation', '', 'formations_index');
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Users', 'fas fa-list', User::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class);

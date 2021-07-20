@@ -5,6 +5,10 @@
   header nav #menuNav ul li {
     padding: 0.2rem 1rem;
   }
+
+  #logo {
+    margin-left: 1rem;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -84,9 +88,23 @@
     
   }
 
+  #formation_index {
+
+    .content {
+
+      h1 {
+        font-size: 1.8rem;
+      }
+    
+      &>div:nth-child(1) {
+        display: block;
+      }
+    } 
+  }
+
   .content {
     max-width: 100%;
-    margin: 0 1rem;
+    // margin: 0 1rem;
   }
 
 }

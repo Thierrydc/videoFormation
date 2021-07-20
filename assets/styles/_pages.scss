@@ -41,7 +41,7 @@
 #formation_index {
 
     .content {
-        max-width: 90%;
+        // max-width: 90%;
 
         &>div:first-child {
             display: grid;
@@ -158,6 +158,22 @@
             resize: none;
             background: white;
             font-size: 1rem;
+        }
+
+        .footer {
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background-color: #3e2da542;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+            
+            p {
+                color: darkslateblue;
+                margin: 0 1rem;
+            }
         }
     }
 
