@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-
+            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EDITOR') %}
             <div class="actions">
                 <div>
                     <a href="{{ path('app_user_myformation')}}" type="button" class="button">Voir mes formations</a>
@@ -39,6 +39,7 @@
                     <a href="{{ path('formation_new')}}" type="button" class="button">Ajouter une formation</a>
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </section>
