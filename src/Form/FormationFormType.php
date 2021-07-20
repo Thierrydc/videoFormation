@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FormationFormType extends AbstractType
@@ -22,6 +23,16 @@ class FormationFormType extends AbstractType
                 'required' => false,
                 'allow_delete' => false,
                 'download_uri' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '200M',
+                        'mimeTypes' => [
+                            'video/mpeg',
+                            'video/mp4',
+                            'video/webm',
+                        ]
+                    ])
+                ]
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
@@ -31,6 +42,16 @@ class FormationFormType extends AbstractType
                 'required' => false,
                 'allow_delete' => false,
                 'download_uri' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2000k',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/gif',
+                        ]
+                    ])
+                ]
             ])
         ;
     }
