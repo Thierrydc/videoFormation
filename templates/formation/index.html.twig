@@ -10,7 +10,7 @@
             <div>
                 <h1>Liste des formations</h1>
                 <form id="category_form">
-                    <select id="select_category" name="formation_form[category]" class="input">
+                    <select id="select_category" class="input">
                         <option value="0">Toutes</option>
                         {% for category in categories %}
                             <option value="{{category.id}}">{{category.name}}</option>
