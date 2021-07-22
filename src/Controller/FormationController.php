@@ -37,8 +37,8 @@ class FormationController extends AbstractController
             $categoryId = $request->query->get('cat');
 
             if($categoryId > 0){
-                $formByCat = $formationRepo->findByCat($categoryId);
-                
+                $formByCat = $categoryRepo->find($categoryId)->getFormations();
+
                 return new JsonResponse([
                     'content' => $this->renderView('formation/_content.html.twig',[
                         'formations' => $formByCat,

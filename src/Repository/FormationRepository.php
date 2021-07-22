@@ -22,7 +22,7 @@ class FormationRepository extends ServiceEntityRepository
     /**
      * @return Formation[] Returns an array of Formation objects
      */
-    public function findByCat($category)
+    /*public function findByCat($category)
     {
         return $this->createQueryBuilder('f')
             ->andWhere('f.category = :category')
@@ -30,7 +30,7 @@ class FormationRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
-    }
+    }*/
 
     /*
     public function findOneBySomeField($value): ?Formation
