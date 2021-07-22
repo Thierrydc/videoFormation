@@ -18,8 +18,6 @@ window.onload = () => {
             // On remplace le contenu
             content.innerHTML = data.content;
 
-            // On met à jour l'url
-            history.pushState({}, null, Url.pathname + "?cat=" + category);
         }).catch(e => alert(e));
     })
 }

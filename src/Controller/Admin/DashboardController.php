@@ -18,6 +18,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 class DashboardController extends AbstractDashboardController
 {
     /**
+     * @IsGranted("ROLE_ADMIN", statusCode=401)
      * @Route("/vf_admin", name="app_admin_index")
      */
     public function index(): Response

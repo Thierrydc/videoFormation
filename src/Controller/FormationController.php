@@ -20,10 +20,10 @@ class FormationController extends AbstractController
     /**
      * @Route("/formation", name="formations_index")
      */
-    public function index(FormationRepository $formationRepo, CategoryRepository $CategoryRepo, Request $request ): Response
+    public function index(FormationRepository $formationRepo, CategoryRepository $categoryRepo, Request $request ): Response
     {
         $formations = $formationRepo->findAll();
-        $listCcategories = $CategoryRepo->findAll();
+        $listCcategories = $categoryRepo->findAll();
         
         // Supprime les catégories vide du filtre
         foreach ($listCcategories as $category) {
@@ -35,9 +35,10 @@ class FormationController extends AbstractController
         // On vérifie si on a une requête Ajax
         if($request->get('ajax')){
             $categoryId = $request->query->get('cat');
+
             if($categoryId > 0){
                 $formByCat = $formationRepo->findByCat($categoryId);
-    
+                
                 return new JsonResponse([
                     'content' => $this->renderView('formation/_content.html.twig',[
                         'formations' => $formByCat,
