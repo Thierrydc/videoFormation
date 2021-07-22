@@ -63,7 +63,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=Formation::class, mappedBy="author")  // fetch="EAGER" =>> AH AH AH ;-)
+     * @ORM\OneToMany(targetEntity=Formation::class, mappedBy="author", orphanRemoval=true)  // fetch="EAGER" =>> AH AH AH ;-)
      */
     private $formations;
 
