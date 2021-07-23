@@ -10,6 +10,7 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
@@ -30,7 +31,7 @@ class UserController extends AbstractController
     /**
      * @Route("/profile/edit", name="app_user_edit")
      */
-    public function edit(EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder, Request $request): Response
+    public function edit(EntityManagerInterface $em, UserPasswordHasherInterface $passwordEncoder, Request $request): Response
     {
         $user = $this->getUser();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -39,7 +40,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isvalid()) {
             // encode the plain password
             $user->setPassword(
-                $passwordEncoder->encodePassword(
+                $passwordEncoder->hashPassword(
                     $user,
                     $form->get('password')->getData()
                 )
