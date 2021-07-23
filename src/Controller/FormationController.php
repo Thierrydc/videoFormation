@@ -62,7 +62,7 @@ class FormationController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_EDITOR", statusCode=401 ,message="Vous devez être connecté pour accéder à cette ressource")
+     * @IsGranted("ROLE_EDITOR", statusCode=401)
      * @Route("/formation_new", name="formation_new")
      */
      public function new(Request $request, Security $security): Response
@@ -87,8 +87,6 @@ class FormationController extends AbstractController
          ]);
      }
 
-    
-    
     /**
      * @Route("/formation/{id}", name="formation_show")
      */
@@ -99,13 +97,10 @@ class FormationController extends AbstractController
         ]);
     }
 
-
-
     /**
-     * @IsGranted("ROLE_EDITOR", statusCode=401 ,message="Vous devez être connecté pour accéder à cette ressource")
+     * @IsGranted("ROLE_EDITOR", statusCode=401)
      * @Route("formation_delete/{id}", name="formation_delete")
      */
-
     public function delete(Request $request, Formation $formation, Security $security): Response
     {
         $user = $security->getUser();
@@ -127,9 +122,8 @@ class FormationController extends AbstractController
         ]);
     }
 
-
     /**
-     * @IsGranted("ROLE_EDITOR", statusCode=401 ,message="Vous devez être connecté pour avoir accès a cette ressource")
+     * @IsGranted("ROLE_EDITOR", statusCode=401)
      * @Route("/formation_edit/{id}", name="formation_edit")
      */
      public function edit(Security $security, Formation $formation, Request $request): Response
