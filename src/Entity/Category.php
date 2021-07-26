@@ -25,7 +25,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Formation::class, mappedBy="category", fetch="EAGER")
+     * @ORM\OneToMany(targetEntity=Formation::class, mappedBy="category")
      * @ORM\OrderBy({"created_at" = "DESC"})
      */
     private $formations;
