@@ -22,7 +22,7 @@ class FormationController extends AbstractController
      */
     public function index(FormationRepository $formationRepo, CategoryRepository $categoryRepo, Request $request ): Response
     {
-        $formations = $formationRepo->findAll();
+        $formations = $formationRepo->findBy([], ['created_at' => 'DESC']);
         $listCcategories = $categoryRepo->findAll();
         
         // Supprime les catégories vide du filtre
@@ -38,7 +38,7 @@ class FormationController extends AbstractController
 
             if($categoryId > 0){
                 $formByCat = $categoryRepo->find($categoryId)->getFormations();
-
+                
                 return new JsonResponse([
                     'content' => $this->renderView('formation/_content.html.twig',[
                         'formations' => $formByCat,
