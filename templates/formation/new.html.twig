@@ -8,7 +8,7 @@
 
             {{ form_start(form) }}
                 <div class="field">
-                    {{ form_label(form.title) }}
+                    {{ form_label(form.title, "Titre") }}
                     {{ form_widget(form.title, {'attr': {'class': 'input'}}) }}
                 </div>
 
@@ -20,27 +20,27 @@
                 </div>
                 <div id="category-duration">
                     <div class="field">
-                        {{ form_label(form.category) }}
+                        {{ form_label(form.category, "Catégorie") }}
                         {{ form_widget(form.category, {'attr': {'class': 'input'}}) }}
                         {{ form_help(form.category) }}
                         {{ form_errors(form.category) }}
                     </div>
                     <div class="field" id="duration">
-                        {{ form_label(form.duration) }}
+                        {{ form_label(form.duration, "Durée") }}
                         {{ form_widget(form.duration, {'attr': {'class': 'input'}}) }}
                         {{ form_help(form.duration) }}
                         {{ form_errors(form.duration) }}
                     </div>
                 </div>
                 <div class="field">
-                    {{ form_label(form.videoFile) }}
+                    {{ form_label(form.videoFile, "Vidéo") }}
                     {{ form_widget(form.videoFile, {'attr': {'class': 'input'}}) }}
                     {{ form_help(form.videoFile) }}
                     {{ form_errors(form.videoFile) }}
                 </div>
 
                 <div class="field">
-                    {{ form_label(form.imageFile) }}
+                    {{ form_label(form.imageFile, "Image") }}
                     {{ form_widget(form.imageFile, {'attr': {'class': 'input'}}) }}
                     {{ form_help(form.imageFile) }}
                     {{ form_errors(form.imageFile) }}
